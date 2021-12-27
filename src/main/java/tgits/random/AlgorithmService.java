@@ -32,4 +32,8 @@ public class AlgorithmService {
 			default -> RandomGenerator.getDefault();
 		};
 	}
+
+	public boolean isThereAlgorithmWithName(String name) {
+		return RandomGeneratorFactory.all().map(RandomGeneratorFactory::name).collect(Collectors.toSet()).contains(name);
+	}
 }
