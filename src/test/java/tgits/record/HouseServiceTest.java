@@ -18,7 +18,7 @@ public class HouseServiceTest {
 
     @Test
     public void verifyListOfHousesGenerated(){
-        List<House> houses = houseService.mainHouseOfWesteros();
+        List<House> houses = houseService.mainHousesOfWesteros();
         assertEquals(9, houses.size());
         assertEquals(new House("Stark", "Winterfell", "A Gray Direwolf", "Winter is coming"), (houses.get(0)));
     }
