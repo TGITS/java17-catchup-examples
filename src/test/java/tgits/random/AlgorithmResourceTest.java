@@ -10,7 +10,7 @@ import static org.hamcrest.CoreMatchers.is;
 public class AlgorithmResourceTest {
 
     @Test
-    public void testHelloEndpoint() {
+    public void algorithmsAsStringEndpoint() {
         String expectedString = """
                 Algorithm name : L128X1024MixRandom - group : LXM - characteristics : { splittable streamable statistical stateBits: 1152 }
                 Algorithm name : L128X128MixRandom - group : LXM - characteristics : { splittable streamable statistical stateBits: 256 }
@@ -19,7 +19,7 @@ public class AlgorithmResourceTest {
                 Algorithm name : L64X1024MixRandom - group : LXM - characteristics : { splittable streamable statistical stateBits: 1088 }
                 Algorithm name : L64X128MixRandom - group : LXM - characteristics : { splittable streamable statistical stateBits: 192 }
                 Algorithm name : L64X128StarStarRandom - group : LXM - characteristics : { splittable streamable statistical stateBits: 192 }
-                Algorithm name : L64X256MixRandom - group : LXM - characteristics : { splitctable streamable statistical stateBits: 320 }
+                Algorithm name : L64X256MixRandom - group : LXM - characteristics : { splittable streamable statistical stateBits: 320 }
                 Algorithm name : Random - group : Legacy - characteristics : { statistical stateBits: 48 }
                 Algorithm name : SecureRandom - group : Legacy - characteristics : { stochastic stateBits: 2147483647 }
                 Algorithm name : SplittableRandom - group : Legacy - characteristics : { splittable streamable statistical stateBits: 64 }

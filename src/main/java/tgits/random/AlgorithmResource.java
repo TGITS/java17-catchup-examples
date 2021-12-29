@@ -16,7 +16,7 @@ public class AlgorithmResource {
         return RandomGeneratorFactory.all().map(fac -> "Algorithm name : %s - group : %s - characteristics : {%s%s%s%s%s%s%s%s stateBits: %d }".formatted(
                 fac.name(),
                 fac.group(),
-                fac.isSplittable() ? " splitable" : "",
+                fac.isSplittable() ? " splittable" : "",
                 fac.isStreamable() ? " streamable" : "",
                 fac.isJumpable() ? " jumpable" : "",
                 fac.isArbitrarilyJumpable() ? " arbitrary-jumpable" : "",
