@@ -7,10 +7,10 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
-public class AlgorithmResourceTest {
+class AlgorithmResourceTest {
 
     @Test
-    public void algorithmsAsStringEndpoint() {
+    void algorithmsAsStringEndpoint() {
         String expectedString = """
                 Algorithm name : L128X1024MixRandom - group : LXM - characteristics : { splittable streamable statistical stateBits: 1152 }
                 Algorithm name : L128X128MixRandom - group : LXM - characteristics : { splittable streamable statistical stateBits: 256 }
@@ -26,10 +26,10 @@ public class AlgorithmResourceTest {
                 Algorithm name : Xoroshiro128PlusPlus - group : Xoroshiro - characteristics : { streamable jumpable leapable statistical stateBits: 128 }
                 Algorithm name : Xoshiro256PlusPlus - group : Xoshiro - characteristics : { streamable jumpable leapable statistical stateBits: 256 }""";
         given()
-          .when().get("/java17/random/algorithm")
-          .then()
-             .statusCode(200)
-             .body(is(expectedString));
+                .when().get("/java17/random/algorithms")
+                .then()
+                .statusCode(200)
+                .body(is(expectedString));
     }
 
 }

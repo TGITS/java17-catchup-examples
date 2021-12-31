@@ -12,7 +12,7 @@ import javax.ws.rs.core.Response;
 import java.util.Collection;
 
 
-@Path("/java17/record")
+@Path("/java17/record/houses")
 public class HouseResource {
 
     private final HouseService houseService;
@@ -22,14 +22,13 @@ public class HouseResource {
     }
 
     @GET
-    @Path("/house")
     @Produces(MediaType.APPLICATION_JSON)
     public Collection<House> mainHousesOfWesteros() {
         return houseService.mainHousesOfWesteros();
     }
 
     @GET
-    @Path("/house/{name}")
+    @Path("/{name}")
     @Produces(MediaType.APPLICATION_JSON)
     public Uni<Response> houseByName(@NotNull @PathParam("name") String name) {
         return houseService.getHouseByName(name)

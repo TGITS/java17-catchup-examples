@@ -13,19 +13,19 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.core.Is.is;
 
 @QuarkusTest
-public class HouseResourceTest {
+class HouseResourceTest {
 
     @InjectMock
     private HouseService houseService;
 
     @Test
-    public void testHouseByNameEndpoint() {
+    void testHouseByNameEndpoint() {
         Mockito.when(houseService.getHouseByName("Stark")).
                 thenReturn(Uni.createFrom().item(new House("Stark", "Winterfell", "A Gray Direwolf", "Winter is coming")));
 
         given()
                 .pathParam("name", "Stark")
-                .when().get("/java17/record/house/{name}")
+                .when().get("/java17/record/houses/{name}")
                 .then()
                 .statusCode(Response.Status.OK.getStatusCode())
                 .contentType(ContentType.JSON)
