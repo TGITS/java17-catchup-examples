@@ -7,6 +7,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import java.util.List;
 
 @Path("/java17/random/algorithms")
 public class AlgorithmResource {
@@ -21,6 +22,12 @@ public class AlgorithmResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String allAlgorithmsAsString() {
         return algorithmService.allAlgorithmsAsString();
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<AlgorithmInformation> allAlgorithms() {
+        return algorithmService.allAlgorithms();
     }
 
     @GET

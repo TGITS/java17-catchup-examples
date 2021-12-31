@@ -2,12 +2,18 @@ package tgits.random;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.validation.constraints.NotNull;
+import java.util.Arrays;
+import java.util.List;
 import java.util.random.RandomGenerator;
 import java.util.random.RandomGeneratorFactory;
 import java.util.stream.Collectors;
 
 @ApplicationScoped
 public class AlgorithmService {
+
+    public List<AlgorithmInformation> allAlgorithms() {
+        return RandomGeneratorFactory.all().map(AlgorithmInformation::fromRandomGenerator).sorted().toList();
+    }
 
     public String allAlgorithmsAsString() {
         return RandomGeneratorFactory.all().map(factory -> "Algorithm name : %s - group : %s - characteristics : {%s%s%s%s%s%s%s%s stateBits: %d }".formatted(
@@ -42,6 +48,10 @@ public class AlgorithmService {
         };
     }
 
+    public List<String> algorithmTypeNames(){
+        return Arrays.stream(AlgorithmType.values()).map(AlgorithmType::typeName).distinct().collect(Collectors.toList());
+    }
+
     public RandomGenerator generatorFromAlgorithmName(String name) {
         return switch (name) {
             case "L128X1024MixRandom", "L128X128MixRandom", "L128X256MixRandom",
@@ -57,4 +67,5 @@ public class AlgorithmService {
     public boolean isThereAlgorithmWithName(String name) {
         return RandomGeneratorFactory.all().map(RandomGeneratorFactory::name).collect(Collectors.toSet()).contains(name);
     }
+
 }
