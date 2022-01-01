@@ -1,4 +1,4 @@
-package tgits.record;
+package tgits.record.house;
 
 /**
  * A record to represent the characteristics of a noble House of Westeros

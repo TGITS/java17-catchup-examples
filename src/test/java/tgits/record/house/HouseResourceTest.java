@@ -1,4 +1,4 @@
-package tgits.record;
+package tgits.record.house;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.quarkus.test.junit.mockito.InjectMock;
@@ -6,6 +6,8 @@ import io.restassured.http.ContentType;
 import io.smallrye.mutiny.Uni;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import tgits.record.house.House;
+import tgits.record.house.HouseService;
 
 import javax.ws.rs.core.Response;
 

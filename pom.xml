@@ -27,11 +27,11 @@
     </dependencies>
   </dependencyManagement>
   <dependencies>
-    <dependency>
+   <!-- <dependency>
       <groupId>io.quarkiverse.neo4j</groupId>
       <artifactId>quarkus-neo4j</artifactId>
       <version>1.0.2</version>
-    </dependency>
+    </dependency>-->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-resteasy-jackson</artifactId>

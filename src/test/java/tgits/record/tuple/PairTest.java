@@ -1,6 +1,7 @@
-package tgits.record;
+package tgits.record.tuple;
 
 import org.junit.jupiter.api.Test;
+import tgits.record.tuple.Pair;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

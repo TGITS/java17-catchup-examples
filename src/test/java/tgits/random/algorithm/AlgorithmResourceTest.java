@@ -1,4 +1,4 @@
-package tgits.random;
+package tgits.random.algorithm;
 
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;

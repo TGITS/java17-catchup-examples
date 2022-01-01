@@ -1,4 +1,4 @@
-package tgits.random;
+package tgits.random.algorithm;
 
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 

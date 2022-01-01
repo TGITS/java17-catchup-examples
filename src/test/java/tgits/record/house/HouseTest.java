@@ -1,6 +1,7 @@
-package tgits.record;
+package tgits.record.house;
 
 import org.junit.jupiter.api.Test;
+import tgits.record.house.House;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

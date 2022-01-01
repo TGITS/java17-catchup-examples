@@ -1,9 +1,10 @@
-package tgits.random;
+package tgits.random.algorithm;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.validation.constraints.NotNull;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.random.RandomGenerator;
 import java.util.random.RandomGeneratorFactory;
 import java.util.stream.Collectors;
@@ -12,7 +13,7 @@ import java.util.stream.Collectors;
 public class AlgorithmService {
 
     public List<AlgorithmInformation> allAlgorithms() {
-        return RandomGeneratorFactory.all().map(AlgorithmInformation::fromRandomGenerator).sorted().toList();
+        return RandomGeneratorFactory.all().map(AlgorithmInformation::of).sorted().toList();
     }
 
     public String allAlgorithmsAsString() {
@@ -44,6 +45,7 @@ public class AlgorithmService {
             case "HARDWARE" -> RandomGeneratorFactory.all().filter(RandomGeneratorFactory::isHardware).count();
             case "STATISTICAL" -> RandomGeneratorFactory.all().filter(RandomGeneratorFactory::isStatistical).count();
             case "STOCHASTIC" -> RandomGeneratorFactory.all().filter(RandomGeneratorFactory::isStochastic).count();
+            case "DEPRECATED" -> RandomGeneratorFactory.all().filter(RandomGeneratorFactory::isDeprecated).count();
             default -> 0;
         };
     }
@@ -68,4 +70,22 @@ public class AlgorithmService {
         return RandomGeneratorFactory.all().map(RandomGeneratorFactory::name).collect(Collectors.toSet()).contains(name);
     }
 
+    public List<RandomGenerator> generatorsOfTypes(List<AlgorithmType> algorithmTypes) {
+        var randomGenerators = RandomGeneratorFactory.all();
+        for(AlgorithmType algorithmType:algorithmTypes){
+            Predicate<RandomGeneratorFactory<RandomGenerator>> filter = switch (algorithmType) {
+                case HARDWARE -> (RandomGeneratorFactory::isHardware);
+                case ARBITRARY_JUMPABLE -> RandomGeneratorFactory::isArbitrarilyJumpable;
+                case JUMPABLE -> RandomGeneratorFactory::isJumpable;
+                case DEPRECATED -> RandomGeneratorFactory::isDeprecated;
+                case LEAPABLE -> RandomGeneratorFactory::isLeapable;
+                case SPLITTABLE -> RandomGeneratorFactory::isSplittable;
+                case STATISTICAL -> RandomGeneratorFactory::isStatistical;
+                case STOCHASTIC -> RandomGeneratorFactory::isStochastic;
+                case STREAMABLE -> RandomGeneratorFactory::isStreamable;
+            };
+            randomGenerators = randomGenerators.filter(filter);
+        }
+        return randomGenerators.map(RandomGeneratorFactory::create).toList();
+    }
 }

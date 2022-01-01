@@ -1,4 +1,4 @@
-package tgits.random;
+package tgits.random.algorithm;
 
 
 import java.util.random.RandomGeneratorFactory;
@@ -7,7 +7,7 @@ public record AlgorithmCharacteristics(boolean splittable, boolean streamable, b
                                        boolean arbitrarilyJumpable, boolean leapable, boolean hardware,
                                        boolean statistical, boolean stochastic, boolean deprecated) {
 
-    public static AlgorithmCharacteristics fromRandomGenerator(RandomGeneratorFactory<java.util.random.RandomGenerator> factory){
+    public static AlgorithmCharacteristics of(RandomGeneratorFactory<java.util.random.RandomGenerator> factory) {
         return new AlgorithmCharacteristics(
                 factory.isSplittable(),
                 factory.isStreamable(),
@@ -17,7 +17,6 @@ public record AlgorithmCharacteristics(boolean splittable, boolean streamable, b
                 factory.isHardware(),
                 factory.isStatistical(),
                 factory.isStochastic(),
-                factory.isDeprecated()
-                );
+                factory.isDeprecated());
     }
 }

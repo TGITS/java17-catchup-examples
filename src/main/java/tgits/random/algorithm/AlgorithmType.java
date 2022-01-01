@@ -1,4 +1,4 @@
-package tgits.random;
+package tgits.random.algorithm;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +11,8 @@ public enum AlgorithmType {
     LEAPABLE("LEAPABLE"),
     HARDWARE("HARDWARE"),
     STATISTICAL("STATISTICAL"),
-    STOCHASTIC("STOCHASTIC");
+    STOCHASTIC("STOCHASTIC"),
+    DEPRECATED("DEPRECATED");
 
     private final String typeName;
 
@@ -31,7 +32,6 @@ public enum AlgorithmType {
         }
     }
 
-    // récupération de l'instance
     public static AlgorithmType fromTypeName(String typeName) {
         final AlgorithmType value = mapSymbols.get(typeName.toUpperCase());
         if (value != null) {

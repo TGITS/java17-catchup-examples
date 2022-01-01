@@ -1,7 +1,9 @@
-package tgits.record;
+package tgits.record.house;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
+import tgits.record.house.House;
+import tgits.record.house.HouseService;
 
 import java.util.Collection;
 
