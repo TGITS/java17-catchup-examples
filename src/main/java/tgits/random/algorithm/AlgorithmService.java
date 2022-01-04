@@ -74,7 +74,7 @@ public class AlgorithmService {
         var randomGenerators = RandomGeneratorFactory.all();
         for(AlgorithmType algorithmType:algorithmTypes){
             Predicate<RandomGeneratorFactory<RandomGenerator>> filter = switch (algorithmType) {
-                case HARDWARE -> (RandomGeneratorFactory::isHardware);
+                case HARDWARE -> RandomGeneratorFactory::isHardware;
                 case ARBITRARY_JUMPABLE -> RandomGeneratorFactory::isArbitrarilyJumpable;
                 case JUMPABLE -> RandomGeneratorFactory::isJumpable;
                 case DEPRECATED -> RandomGeneratorFactory::isDeprecated;

@@ -1,14 +1,12 @@
 package tgits.sealed.bibliography;
 
-import org.apache.commons.lang3.Range;
-
 import java.time.Month;
 import java.time.Year;
 import java.util.List;
 
 /**
  * A bibliographic entry of type BibTex
- * */
+ */
 public sealed abstract class BibliographicEntry permits Article, Book, Booklet, Conference, Inbook, Incollection,
         Inproceedings, Manual, MastersThesis, Misc, PhdThesis, Proceedings, Techreport, Unpublished {
 
@@ -26,7 +24,7 @@ public sealed abstract class BibliographicEntry permits Article, Book, Booklet, 
     protected String note;
     protected int number;
     protected String organization;
-    protected List<Range<Integer>> pages;
+    protected List<PagesRange> pages;
     protected String publisher;
     protected String school;
     protected String series;

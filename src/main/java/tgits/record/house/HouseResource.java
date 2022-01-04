@@ -32,7 +32,7 @@ public class HouseResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Uni<Response> houseByName(@NotNull @PathParam("name") String name) {
         return houseService.getHouseByName(name)
-                .onItem().ifNotNull().transform(fruit -> Response.ok(fruit).
+                .onItem().ifNotNull().transform(house -> Response.ok(house).
                         build())
                 .onItem().ifNull().continueWith(Response.status(Response.Status.NOT_FOUND).
                         build());
