@@ -1,7 +1,9 @@
 package tgits.random.dice;
 
+import javax.inject.Singleton;
 import java.util.random.RandomGenerator;
 
+@Singleton
 public final class Coin implements RandomDevice<Boolean> {
 
     private final RandomGenerator generator;
