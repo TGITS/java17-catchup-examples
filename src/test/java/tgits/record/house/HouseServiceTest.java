@@ -15,7 +15,7 @@ public class HouseServiceTest {
 
     private final HouseService houseService;
 
-    public HouseServiceTest(HouseService houseService) {
+    public HouseServiceTest(final HouseService houseService) {
         this.houseService = houseService;
     }
 
