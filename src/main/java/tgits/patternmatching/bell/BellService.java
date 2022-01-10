@@ -25,6 +25,7 @@ public class BellService {
         return new Macebell(weight);
     }
 
+    //Avec Pattern Matching sur instanceof
     public String doExerciseWithBell(Bell bell) {
         if (bell instanceof Barbell barbell) {
             return barbell.doDeadlift();

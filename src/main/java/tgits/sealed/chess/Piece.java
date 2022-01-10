@@ -1,6 +1,6 @@
 package tgits.sealed.chess;
 
-public sealed abstract class Piece permits Pawn,Bishop, Knight, Rook, Queen, King{
+public abstract sealed class Piece permits Pawn, Bishop, Knight, Rook, Queen, King {
 
     protected Color color;
 
