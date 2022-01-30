@@ -39,10 +39,22 @@ public class RandomGenerationExample {
     private static RandomGenerator createRandomGeneratorFromName(String name) {
         return switch (name) {
             case "L128X1024MixRandom", "L128X128MixRandom", "L128X256MixRandom", "L32X64MixRandom", "L64X1024MixRandom",
-                    "L64X128MixRandom", "L64X128StarStarRandom", "L64X256MixRandom" -> RandomGenerator.SplittableGenerator.of(name);
-            case "Random", "SecureRandom" -> RandomGenerator.of(name);
-            case "SplittableRandom" -> RandomGenerator.StreamableGenerator.of(name);
-            case "Xoroshiro128PlusPlus", "Xoshiro256PlusPlus" -> RandomGenerator.LeapableGenerator.of(name);
+                    "L64X128MixRandom", "L64X128StarStarRandom", "L64X256MixRandom" -> {
+                System.out.println("Creating a splittable Random Generator");
+                yield RandomGenerator.SplittableGenerator.of(name);
+            }
+            case "Random", "SecureRandom" -> {
+                System.out.println("Creating a old school Random Generator");
+                yield RandomGenerator.of(name);
+            }
+            case "SplittableRandom" -> {
+                System.out.println("Creating a Streamable Random Generator (yep it is also Splittable!)");
+                yield RandomGenerator.StreamableGenerator.of(name);
+            }
+            case "Xoroshiro128PlusPlus", "Xoshiro256PlusPlus" -> {
+                System.out.println("Creating a Leapable Random Generator");
+                yield RandomGenerator.LeapableGenerator.of(name);
+            }
             default -> RandomGenerator.getDefault();
         };
     }
